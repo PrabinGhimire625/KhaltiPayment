@@ -28,7 +28,7 @@ export const addKhalti = async (req, res) => {
                 data,
                 {
                     headers: {
-                        Authorization: "Key c8635732e06a45e0a3b251ac44326e14", // Replace with your Khalti secret key
+                        Authorization: `Key ${process.env.KHALTI_SECRET_KEY}`, // Replace with your Khalti secret key
                     },
                 }
             );
