@@ -4,17 +4,13 @@ import Payment from "../models/khaltiModel.js";
 //add khalti
 export const addKhalti = async (req, res) => {
     const { paymentMethod, paymentStatus, pidx, orderId, totalAmount } = req.body;
-
     if (!paymentMethod) {
         return res.status(400).json({ message: "Please provide the payment method" });
     }
-
     try {
-        // Create payment record
         const payment = await Payment.create({ paymentMethod, paymentStatus, pidx });
 
         if (paymentMethod === "khalti") {
-            // Khalti integration
             const data = {
                 return_url: "http://localhost:5173/success/", // Replace with your frontend success URL
                 purchase_order_id: orderId, // Pass the order ID

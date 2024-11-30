@@ -1,0 +1,3 @@
+step for the khalti payment
+1. came paymentMethod, totalAmount, orderId, pidx from req.body
+2. Payment.create(paymentMethod, pidx)
